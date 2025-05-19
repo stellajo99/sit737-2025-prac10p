@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prac10p-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prac10p
+  template:
+    metadata:
+      annotations:
+          prometheus.io/scrape: "true"
+          prometheus.io/port: "3000"
+      labels:
+        app: prac10p
+    spec:
+      containers:
+      - name: prac10p-container
+        image: stellajo99/sit737-10p:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGO_URI
+          value: mongodb://mongo_user:mongo_pass@mongodb:27017/?authSource=admin
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
