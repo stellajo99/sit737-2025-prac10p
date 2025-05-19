@@ -1,7 +1,7 @@
 
 # SIT737 10.1p - Advanced Calculator Microservice Dockerized and Deployed
 
-A cloud-native calculator microservice built using Node.js, Express, and MongoDB, deployable to Kubernetes with built-in observability.
+A cloud-native calculator microservice built using Node.js, Express, and MongoDB, deployable to Kubernetes.
 
 ---
 
